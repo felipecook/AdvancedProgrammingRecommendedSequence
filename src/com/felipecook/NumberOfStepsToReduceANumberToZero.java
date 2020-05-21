@@ -57,19 +57,19 @@ public class NumberOfStepsToReduceANumberToZero {
 
   }
 
-  public static void main(String[] args) {
-
-    int testDataNum1 = 23;
-    int testDataNum2 = 232;
-    int testDataNum3 = -1;
-
-    int numberOfStepsSolution = numberOfSteps(testDataNum2);
-    System.out.println(numberOfStepsSolution);
-
-    /*
-    * 23 - 1 = 22 / 2 = 11 - 1 = 10 / 2 = 5 - 1 = 4 /2 = 2 / 2 = 1 -1 = 0
-    *
-    * */
-  }
+//  public static void main(String[] args) {
+//
+//    int testDataNum1 = 23;
+//    int testDataNum2 = 232;
+//    int testDataNum3 = -1;
+//
+//    int numberOfStepsSolution = numberOfSteps(testDataNum2);
+//    System.out.println(numberOfStepsSolution);
+//
+//    /*
+//    * 23 - 1 = 22 / 2 = 11 - 1 = 10 / 2 = 5 - 1 = 4 /2 = 2 / 2 = 1 -1 = 0
+//    *
+//    * */
+//  }
 
 }

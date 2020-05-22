@@ -41,21 +41,17 @@ public class SubtractTheProductAndSumOfDigitsOfAnInteger {
     while (valueOfN > 0){
       int singleDigit = valueOfN % 10;
       product *= singleDigit;
-      valueOfN /= 10;
-    }
-    valueOfN = n;
-    while (valueOfN > 0){
-      sum += valueOfN % 10;
+      sum += singleDigit;
       valueOfN /= 10;
     }
     difference = product - sum;
     return difference;
   }
 
-  public static void main(String[] args) {
-    int testData = 4421;
-    int result = subtractProductAndSum(testData);
-    System.out.println(result);
-
-  }
+//  public static void main(String[] args) {
+//    int testData = 4421;
+//    int result = subtractProductAndSum(testData);
+//    System.out.println(result);
+//
+//  }
 }

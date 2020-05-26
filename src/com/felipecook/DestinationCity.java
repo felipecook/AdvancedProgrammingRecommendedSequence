@@ -2,9 +2,14 @@ package com.felipecook;
 
 
 /*
-You are given the array paths, where paths[i] = [cityAi, cityBi] means there exists a direct path going from cityAi to cityBi. Return the destination city, that is, the city without any path outgoing to another city.
+DestinationCity
 
-It is guaranteed that the graph of paths forms a line without any loop, therefore, there will be exactly one destination city.
+You are given the array paths, where paths[i] = [cityAi, cityBi] means there exists a direct path
+going from cityAi to cityBi. Return the destination city, that is, the city without any path
+outgoing to another city.
+
+It is guaranteed that the graph of paths forms a line without any loop, therefore,
+there will be exactly one destination city.
 
 
 
@@ -12,7 +17,8 @@ Example 1:
 
 Input: paths = [["London","New York"],["New York","Lima"],["Lima","Sao Paulo"]]
 Output: "Sao Paulo"
-Explanation: Starting at "London" city you will reach "Sao Paulo" city which is the destination city. Your trip consist of: "London" -> "New York" -> "Lima" -> "Sao Paulo".
+Explanation: Starting at "London" city you will reach "Sao Paulo" city which is the destination city.
+Your trip consist of: "London" -> "New York" -> "Lima" -> "Sao Paulo".
 
 Example 2:
 
@@ -44,31 +50,32 @@ Constraints:
 
 * */
 
-import java.util.HashSet;
+
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
 public class DestinationCity {
 
   public static String destCity(List<List<String>> paths) {
-    List<String> outboundFlights = new LinkedList<>();
-    List<String> inboundFlights = new LinkedList<>();
+    List<String> outgoingFlights = new LinkedList<>();
+    List<String> incomingFlights = new LinkedList<>();
+
     for (int i = 0; i < paths.size(); i++) {
-      List<String> individualPieceOfPathsList = paths.get(i);
-      String outgoingFlight = individualPieceOfPathsList.get(0);
-      String incomingFlight = individualPieceOfPathsList.get(1);
-      outboundFlights.add(outgoingFlight);
-      inboundFlights.add(incomingFlight);
+      List<String> individualElementsFromPaths = paths.get(i);
+      String outgoingFlight = individualElementsFromPaths.get(0);
+      String incomingFlight = individualElementsFromPaths.get(1);
+      outgoingFlights.add(outgoingFlight);
+      incomingFlights.add(incomingFlight);
     }
-    for (int i = 0; i < inboundFlights.size(); i++) {
-      String incomingFlight = inboundFlights.get(i);
-      if (!outboundFlights.contains(incomingFlight)){
+    for (int i = 0; i < outgoingFlights.size(); i++) {
+      String incomingFlight = incomingFlights.get(i);
+      if(!outgoingFlights.contains(incomingFlight)){
         return incomingFlight;
       }
     }
     return null;
   }
+
 
   public static void main(String[] args) {
     List<List<String>> testList = new LinkedList<>();
@@ -83,7 +90,7 @@ public class DestinationCity {
     testIndividualElementsToList3.add("A");
     testList.add(testIndividualElementsToList1);
     testList.add(testIndividualElementsToList2);
-    testList.add(testIndividualElementsToList2);
+    testList.add(testIndividualElementsToList3);
     String returnString = destCity(testList);
     System.out.println(returnString);
   }

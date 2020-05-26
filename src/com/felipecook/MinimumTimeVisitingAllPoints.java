@@ -33,4 +33,32 @@ Total time = 7 seconds
 
 public class MinimumTimeVisitingAllPoints {
 
+  public static int minTimeToVisitAllPoints(int[][] points) {
+    int counterForTotalTime = 0;
+
+    for (int i = 0; i < points.length - 1; i++) {
+      int[] firstLocation = points[i];
+      int[] secondLocation = points[i+1];
+
+      int differenceOfXCoordinates;
+      int differenceOfYCoordinates;
+      differenceOfXCoordinates = Math.abs(firstLocation[0] - secondLocation[0]);
+      differenceOfYCoordinates = Math.abs(firstLocation[1] - secondLocation[1]);
+      counterForTotalTime += Math.max(differenceOfXCoordinates, differenceOfYCoordinates);
+
+
+
+    }
+    return counterForTotalTime;
+  }
+
+  public static void main(String[] args) {
+    int[][] points = new int[3][];
+    points[1] = new int[]{1, 1};
+    points[2] = new int[]{3, 4};
+    points[3] = new int[]{-1, 0};
+    int answer = minTimeToVisitAllPoints(points);
+    System.out.println(answer);
+  }
+
 }

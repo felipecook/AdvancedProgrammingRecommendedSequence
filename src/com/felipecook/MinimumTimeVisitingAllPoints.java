@@ -1,6 +1,6 @@
 package com.felipecook;
 
-/*
+/* MinimumTimeVisitingAllPoints
 On a plane there are n points with integer coordinates
 points[i] = [xi, yi]. Your task is to find the minimum time
 in seconds to visit all points.
@@ -28,37 +28,28 @@ Time from [1,1] to [3,4] = 3 seconds
 Time from [3,4] to [-1,0] = 4 seconds
 Total time = 7 seconds
 */
-
-
-
 public class MinimumTimeVisitingAllPoints {
 
   public static int minTimeToVisitAllPoints(int[][] points) {
-    int counterForTotalTime = 0;
-
+    int counterOfTotalSeconds = 0;
     for (int i = 0; i < points.length - 1; i++) {
-      int[] firstLocation = points[i];
-      int[] secondLocation = points[i+1];
+      int[] firstXYCoordinate = points[i];
+      int[] secondXYCoordinate = points[i + 1];
 
-      int differenceOfXCoordinates;
-      int differenceOfYCoordinates;
-      differenceOfXCoordinates = Math.abs(firstLocation[0] - secondLocation[0]);
-      differenceOfYCoordinates = Math.abs(firstLocation[1] - secondLocation[1]);
-      counterForTotalTime += Math.max(differenceOfXCoordinates, differenceOfYCoordinates);
-
-
-
+      int differenceOfXCoordinates = Math.abs(firstXYCoordinate[0] - secondXYCoordinate[0]);
+      int differenceOfYCoordinates = Math.abs(firstXYCoordinate[1] - secondXYCoordinate[1]);
+      counterOfTotalSeconds += Math.max(differenceOfXCoordinates, differenceOfYCoordinates);
     }
-    return counterForTotalTime;
+    return counterOfTotalSeconds;
   }
 
   public static void main(String[] args) {
     int[][] points = new int[3][];
-    points[1] = new int[]{1, 1};
-    points[2] = new int[]{3, 4};
-    points[3] = new int[]{-1, 0};
-    int answer = minTimeToVisitAllPoints(points);
-    System.out.println(answer);
+    points[0] = new int[]{1,1};
+    points[1] = new int[]{3,4};
+    points[2] = new int[]{-1,0};
+    int totalSeconds = minTimeToVisitAllPoints(points);
+    System.out.println(totalSeconds);
   }
 
 }

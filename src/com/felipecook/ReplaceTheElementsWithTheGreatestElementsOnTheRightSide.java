@@ -30,17 +30,24 @@ public class ReplaceTheElementsWithTheGreatestElementsOnTheRightSide {
     int[] replacedElements = new int[arr.length];
     for (int i = 0; i < arr.length; i++) {
       int currentMaxInt = 0;
-      for (int j = i + 1; j < arr.length - 1; j++) {
-        if(arr[j] < currentMaxInt){
+      for (int j = i + 1; j < arr.length; j++) {
+        if(arr[j] > currentMaxInt){
           currentMaxInt = arr[j];
         }
       }
+
       replacedElements[i] = currentMaxInt;
     }
+    replacedElements[arr.length - 1] = -1;
     return replacedElements;
   }
 
   public static void main(String[] args) {
-    
+    int[] testData = new int[]{17, 18, 5, 6, 1};
+    int[] returnData = replaceElements(testData);
+    for (int a: returnData
+    ) {
+      System.out.println(a);
+    }
   }
 }

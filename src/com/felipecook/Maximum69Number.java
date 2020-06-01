@@ -44,20 +44,25 @@ Constraints:
 * */
 public class Maximum69Number {
 
-  public int maximum69Number (int num) {
-    int numDuplicated = num;
-    int numberOfDigitsInNum = 0;
-    while(numDuplicated > 0){
-      numberOfDigitsInNum++;
-      numDuplicated /= 10;
-    }
-    numDuplicated = num;
-    List<Integer> containingAllPermutationsOfNum = new LinkedList<>();
-    int tenTimesTen = 10;
-    for (int i = 0; i < numberOfDigitsInNum; i++) {
-      int individualDigit = numDuplicated / tenTimesTen;
-      if (individualDigit == )
-    }
+  public static int maximum69Number (int num) {
+    int[]digits = Integer.toString(num).chars().map(c -> c-'0').toArray();
+    for (int i = 0; i < digits.length; i++) {
+      if (digits[i] == 6) {
+        digits[i] = 9;
+        StringBuilder finalString = new StringBuilder();
+        for (int j = 0; j < digits.length; j++) {
+          finalString.append(digits[j]);
+        }
+        return Integer.parseInt(finalString.toString());
+      }
 
+    }
+    return num;
+
+  }
+
+  public static void main(String[] args) {
+    int test = 669;
+    System.out.println(maximum69Number(test));
   }
 }
